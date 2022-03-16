@@ -15,10 +15,11 @@ public class App {
      * /hello relative URL.
      */
     public static void main(String[] args) {
-//        ServicesImpl servicesImpl = new ServicesImpl();
         MessageService messageService = new MessageService();
-        messageService.setupMongo();
+
         port(getPort());
+
+        get("/hello", (req, res) -> "Hello Docker");
 
         // Allow CORS
         options("/*",
@@ -40,12 +41,15 @@ public class App {
             return null;
         });
 
-        get("/postMessage", (req, res) -> {
-            String value = req.queryParams("value");
-            return null;
+        post("/postMessage", (req, res) -> {
+            res.type("application/json");
+            if (req.body() != null) {
+                messageService.addItem(req.body());
+            }
+            return messageService.getAllItems();
         });
 
-        get("/hello", (req, res) -> "Hello Docker");
+
     }
 
 
