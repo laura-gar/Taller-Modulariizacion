@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - 8062:6000
+
+  mongodb:
+    image: mongo:4.0.4
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/apps/mongo:/data/db
