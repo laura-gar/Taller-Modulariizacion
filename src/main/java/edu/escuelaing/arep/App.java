@@ -1,10 +1,9 @@
 package edu.escuelaing.arep;
 
-import edu.escuelaing.arep.services.MessageService;
-import spark.Request;
-import spark.Response;
-import spark.Filter;
-import com.google.gson.JsonObject;
+import edu.escuelaing.arep.services.LogService;
+
+import java.util.ArrayList;
+
 import static spark.Spark.*;
 
 
@@ -15,7 +14,7 @@ public class App {
      * /hello relative URL.
      */
     public static void main(String[] args) {
-        MessageService messageService = new MessageService();
+        LogService logService = new LogService();
 
         port(getPort());
 
@@ -36,17 +35,29 @@ public class App {
                 });
         before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
-        get("/getMessage", (req, res) -> {
-            String value = req.queryParams("value");
-            return null;
+        get("/message", (req, res) -> {
+            res.type("application/json");
+            logService.createConnection();
+
+            ArrayList<String> allItems = logService.getAllItems();
+
+            logService.closeConnection();
+
+            return allItems;
         });
 
-        post("/postMessage", (req, res) -> {
+        post("/message", (req, res) -> {
             res.type("application/json");
+            logService.createConnection();
+
             if (req.body() != null) {
-                messageService.addItem(req.body());
+                logService.addItem(req.body());
             }
-            return messageService.getAllItems();
+
+            ArrayList<String> allItems = logService.getAllItems();
+            logService.closeConnection();
+
+            return allItems;
         });
 
 
