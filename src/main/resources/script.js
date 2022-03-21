@@ -15,6 +15,8 @@ let actualPort = 0;
 const rotate = () => {
     actualPort = (actualPort + 1) % PORTS.length; 
     URL = `${BASE_URL}${PORTS[actualPort]}`; 
+
+    console.log(URL); 
 }
 
 
