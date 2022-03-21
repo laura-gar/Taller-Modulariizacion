@@ -17,7 +17,7 @@ Bootstrap y la implementación de la base de datos usando la imagen de mongoDb e
 
 Para desplegar los contenedores, se genera un docker-compose, en este se especifica los contenedores
 que se quieren crear, los puertos que usarán y las conexiones que tienen entre ellos. 
-Al tenerlo, se usa el comando `docker-compose up` para que comience la generación de las imagenes
+Al tenerlo, se usa el comando `docker-compose up` para que comience la generación de las imágenes
 necesarias y finalmente la construcción de los contenedores. 
 
 Cuando se tenga claridad de que ya se puede correr de manera local, se crea un repositorio en 
@@ -29,11 +29,11 @@ git para subir los archivos, de esta manera facilitara el despliegue en AWS.
 
 ### Despliegue en AWS
 
-Para el despligue en AWS, es necesario crear una instancia de una máquina **EC2**. Al crear la instancia es 
-necesario seleccionar ciertos parametros como: 
+Para el despliegue en AWS, es necesario crear una instancia de una máquina **EC2**. Al crear la instancia es 
+necesario seleccionar ciertos parámetros como: 
 - Amazon Machine Image(AMI): Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type
 - Tipo de Instancia: t2.micro
- Para lanzar la instancia, es necesario generar un nuevo par de llaves, estas se crearan y descargarán donde se crea
+ Para lanzar la instancia, es necesario generar un nuevo par de llaves, estas se crearán y descargarán donde se crea
 más conveniente. 
 
 ![](img/instance.png)
@@ -63,7 +63,7 @@ se subieron los archivos.
   ![](img/gitClone.png)
 
 Con el repositorio clonado, se usa nuevamente el comando `docker-compose up` para generar 
-las imagenes y realizar la construcción de los contenedores. 
+las imágenes y realizar la construcción de los contenedores. 
 
 - Contenedores corriendo
 
