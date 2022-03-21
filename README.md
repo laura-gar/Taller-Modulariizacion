@@ -43,12 +43,15 @@ Cuando se tiene la instancia corriendo, se ingresa desde la consola a la instanc
 los programas que sean necesarios, en este caso, se instaló **_Docker_**, **_docker-compose_** y **_Git_**
 
 - Instalación de Docker
+
   ![](img/installDocker.png)
 
 - Instalación de docker-compose
+
   ![](img/installDockerCompose.png)
 
 - Instalación de Git
+
   ![](img/installGit.png)
 
 
@@ -56,23 +59,27 @@ Al tener la máquina con esto, es posible clonar el repositorio en el que anteri
 se subieron los archivos. 
 
 - Repositorio clonado
+
   ![](img/gitClone.png)
 
 Con el repositorio clonado, se usa nuevamente el comando `docker-compose up` para generar 
 las imagenes y realizar la construcción de los contenedores. 
 
 - Contenedores corriendo
+
   ![](img/containers.png)
 
 Para poder acceder a los endpoints creados, es necesario abrir los puertos de la máquina 
 virtual, para esto, se generan nuevas reglas en el **Security Group** de ella. 
 
 - Nuevas reglas para el Security Group
+
   ![](img/securityGroup.png)
 
 Finalmente, es posible dirigirse a la dirección de la máquina y realizar las pruebas correspondientes
 
 - Aplicación en AWS
+
   ![](img/runningAWS.png)
 
 El funcionamiento del RoundRobin se ve en la consola con los logs que se 
@@ -80,6 +87,7 @@ definieron. Con cada petición, se cambia el puerto al que se realiza la
 petición. 
  
 - Round Robin
+
   ![](img/roundRobin.png)
 
 
